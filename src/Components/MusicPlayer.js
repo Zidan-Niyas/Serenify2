@@ -12,7 +12,7 @@ const MusicPlayer = () => {
   useEffect(() => {
     const fetchSongs = async () => {
       let emotion = "Happy";
-      const songsListRef = ref(storage, `songs/`); // Path to your songs folder in Firebase Storage
+      const songsListRef = ref(storage, `songs/${emotion}`); // Path to your songs folder in Firebase Storage
       const songRefs = await listAll(songsListRef);
       const songUrls = await Promise.all(
         songRefs.items.map((songRef) => getDownloadURL(songRef))
